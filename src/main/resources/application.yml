@@ -1,9 +1,18 @@
 spring:
-  datasource:
-    driverClassName: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/recruit
-    username: developer
-    password: developer
+  profiles.active: default
+---
+spring:
+  profiles: default
+  mvc:
+    ignore-default-model-on-redirect: false
+  view:
+    prefix: /WEB-INF/views/
+    suffix: .jsp
+server:
+  port: 8080
+---
+spring:
+  profiles: prod
   mvc:
     ignore-default-model-on-redirect: false
   view:
