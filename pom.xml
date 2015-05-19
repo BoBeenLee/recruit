@@ -120,21 +120,20 @@
 			<artifactId>jstl</artifactId>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.github.jsimone</groupId>
 			<artifactId>webapp-runner</artifactId>
 			<version>7.0.34.0</version>
-			<scope>provided</scope>
-		</dependency>
+		</dependency> -->
 	</dependencies>
 
 	<build>
 		<plugins>
-	<!-- 		<plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin> -->
-			<plugin>
+			</plugin>
+		<!-- 	<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.6</source>
@@ -167,7 +166,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>
+			</plugin> -->
 		</plugins>
 	</build>
 
