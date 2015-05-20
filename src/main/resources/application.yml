@@ -1,5 +1,5 @@
 spring:
-  profiles.active: default
+  profiles.active: prod
 ---
 spring:
   profiles: default
@@ -23,6 +23,6 @@ spring:
     suffix: .jsp
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true 
+    show-sql: false 
 server:
   port: 8080
