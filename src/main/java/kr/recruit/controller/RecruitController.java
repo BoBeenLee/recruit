@@ -79,12 +79,15 @@ public class RecruitController {
 	}
 	
 	@RequestMapping(value="/update/site")
-	public void updateSite() throws IOException{
+	public void updateSite() {
 		List<Site> sites = siteService.findAll();
 
 		for (int i = 0; i < sites.size(); i++) {
 			Site site = siteService.findByName(sites.get(i).getName());
-			siteService.saveSiteGroups(site);
+			try {
+				siteService.saveSiteGroups(site);
+			} catch (IOException e) {
+			}
 		}
 	}
 }
