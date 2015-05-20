@@ -36,7 +36,7 @@ public class RecruitController {
 	@Autowired
 	private SiteGroupService siteGroupService;
 
-	@RequestMapping(value = "/main")
+	@RequestMapping(value = "")
 	public String viewSites(Model model) {
 		List<Site> sites = siteService.findAll();
 		model.addAttribute("sites", sites);

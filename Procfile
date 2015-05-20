@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dspring.profiles.active=prod --port 8080 target/*.war
+web: java -jar $JAVA_OPTS -Dspring.profiles.active=prod target/*.jar
