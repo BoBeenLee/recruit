@@ -6,7 +6,7 @@
 	<groupId>kr</groupId>
 	<artifactId>recruit</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>recruit</name>
 	<description>recruit project for Spring Boot</description>
@@ -122,7 +122,7 @@
 
 	<build>
 		<plugins>
-			<plugin>
+		<!-- 	<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
@@ -143,9 +143,11 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin> -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<!-- <plugin> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-maven-plugin</artifactId> 
-				</plugin> -->
 		</plugins>
 	</build>
 
