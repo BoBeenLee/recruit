@@ -1,6 +1,5 @@
 var siteCtrl = function($scope, $http) {
 	$scope.siteGroups = [];
-	$scope.site = {};
 	
 	$scope.init = function() {
 	}
@@ -11,7 +10,7 @@ var siteCtrl = function($scope, $http) {
 			$scope.siteGroups.length = 0;
 			for(var i=0; i<data.siteGroups.length; i++)
 				$scope.siteGroups.push(data.siteGroups[i]);
-			$scope.site.link = data.site.url;
+			$scope.link = data.site.url;
 		},
         function (data) {
         	console.log(data + " error");

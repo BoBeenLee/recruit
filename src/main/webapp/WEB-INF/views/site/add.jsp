@@ -13,12 +13,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Article</title>
 <link rel="stylesheet"
-	href='<c:url value="${baseURL}/resources/css/normalize.css"/>'>
+	href='<c:url value="/resources/css/normalize.css"/>'>
 <link rel="stylesheet"
-	href='<c:url value="${baseURL}/resources/css/style.css"/>'>
+	href='<c:url value="/resources/css/style.css"/>'>
 </head>
 <body ng-controller="AddCtrl" ng-init="init()">
-	<header> 사이트 추가 <a href='<c:url value="${baseURL}/recruit/main"/>'>목록</a> </header>
+	<header> 사이트 추가 <a href='<c:url value="/recruit/main"/>'>목록</a> </header>
 	<article>
 	<form method="post" action="add">
 		<div>
@@ -46,8 +46,8 @@
 			type="submit" value="확인" />
 	</form>
 	</article>
-	<script src='<c:url value="${baseURL}/resources/js/common/jquery-2.1.3.min.js" />'></script>
-	<script src='<c:url value="${baseURL}/resources/js/common/angular.min.js" />'></script>
-	<script src='<c:url value="${baseURL}/resources/js/site.js" />'></script>
+	<script src='<c:url value="/resources/js/common/jquery-2.1.3.min.js" />'></script>
+	<script src='<c:url value="/resources/js/common/angular.min.js" />'></script>
+	<script src='<c:url value="/resources/js/site.js" />'></script>
 </body>
 </html>

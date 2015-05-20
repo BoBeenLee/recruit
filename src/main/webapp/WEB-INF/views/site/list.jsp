@@ -12,12 +12,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>List</title>
 <link rel="stylesheet"
-	href='<c:url value="${baseURL}/resources/css/normalize.css"/>'>
+	href='<c:url value="/resources/css/normalize.css"/>'>
 <link rel="stylesheet"
-	href='<c:url value="${baseURL}/resources/css/style.css"/>'>
+	href='<c:url value="/resources/css/style.css"/>'>
 </head>
 <body>
-	<header> 사이트 목록 <a href='<c:url value="${baseURL}/recruit/main"/>'>목록</a>
+	<header> 사이트 목록 <a href='<c:url value="/recruit/main"/>'>목록</a>
 	</header>
 	<article>
 	<ul>

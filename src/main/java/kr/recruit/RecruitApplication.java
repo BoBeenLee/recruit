@@ -8,14 +8,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class Application extends SpringBootServletInitializer {
+public class RecruitApplication extends SpringBootServletInitializer {
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		String webPort = System.getenv("PORT");
+        if (webPort == null || webPort.isEmpty()) {
+            webPort = "8080";
+        }
+        System.setProperty("server.port", webPort);
+        
+		SpringApplication.run(RecruitApplication.class, args);
 	}
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(Application.class);
+		return application.sources(RecruitApplication.class);
 	}
 	
 	@Bean

@@ -1,12 +1,14 @@
 package kr.recruit.controller;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import kr.recruit.domain.Site;
 import kr.recruit.domain.SiteGroup;
-import kr.recruit.domain.SiteMap;
 import kr.recruit.service.SiteGroupService;
 import kr.recruit.service.SiteMapService;
 import kr.recruit.service.SiteService;
@@ -16,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +27,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/recruit")
@@ -36,7 +39,7 @@ public class RecruitController {
 	@Autowired
 	private SiteGroupService siteGroupService;
 
-	@RequestMapping(value = "/main")
+	@RequestMapping(value = "")
 	public String viewSites(Model model) {
 		List<Site> sites = siteService.findAll();
 		model.addAttribute("sites", sites);
@@ -58,8 +61,8 @@ public class RecruitController {
 	public String proccessSite(@PathVariable String code, @ModelAttribute Site site, Model model) {
 		String url = "redirect:/recruit/main";
 
-//		logger.info("processSite : " + site);
-		
+		// logger.info("processSite : " + site);
+
 		if (code.equals("add")) {
 			if (site.getName() == null)
 				url = "/site/" + code;
@@ -73,5 +76,18 @@ public class RecruitController {
 			url = "/site/" + code;
 		}
 		return url;
+	}
+	
+	@RequestMapping(value="/update/site")
+	public void updateSite() {
+		List<Site> sites = siteService.findAll();
+
+		for (int i = 0; i < sites.size(); i++) {
+			Site site = siteService.findByName(sites.get(i).getName());
+			try {
+				siteService.saveSiteGroups(site);
+			} catch (IOException e) {
+			}
+		}
 	}
 }

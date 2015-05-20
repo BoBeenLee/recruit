@@ -12,9 +12,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>개발 - 채용 정보 모음</title>
-<link rel="stylesheet" href='<c:url value="${baseURL}/resources/css/normalize.css"/>'>
-<link rel="stylesheet" href='<c:url value="${baseURL}/resources/css/bootstrap.min.css"/>'> 
-<link rel="stylesheet" href='<c:url value="${baseURL}/resources/css/style.css"/>'>
+<link rel="stylesheet" href='<c:url value="/resources/css/normalize.css"/>'>
+<link rel="stylesheet" href='<c:url value="/resources/css/bootstrap.min.css"/>'> 
+<link rel="stylesheet" href='<c:url value="/resources/css/style.css"/>'>
 </head>
 <body ng-controller="SiteCtrl" ng-init="init()">
 	<nav class="navbar">
@@ -29,14 +29,14 @@
 		<div class="navbar-collapse collapse">
 		    <ul class="nav navbar-nav">
 		      	<c:forEach var="site" items="${ sites }">
-					<li><a href="#" ng-click="site('${baseURL}/recruit/get', ${site.stId}, '${ site.url }')">${site.name}</a>
+					<li><a href="#" ng-click="site('/recruit/get', ${site.stId}, '${ site.url }')">${site.name}</a>
 				</c:forEach>
 		    </ul>
 		</div>
 	</nav>
 	<article>
 	<div>
-		<a class="cur-url" href="{{ site.url }}" target="_blank">Link</a>
+		<a class="cur-url" href="{{ link }}" target="_blank">Link</a>
 	</div>
 	<ul>
 		<li ng-repeat="siteGroup in siteGroups">
@@ -45,9 +45,9 @@
 	</ul>
 	</article>
 	<footer> </footer>
-	<script src='<c:url value="${baseURL}/resources/js/common/jquery-2.1.3.min.js" />'></script>
-	<script src='<c:url value="${baseURL}/resources/js/common/bootstrap.min.js" />'></script>
-	<script src='<c:url value="${baseURL}/resources/js/common/angular.min.js" />'></script>
-	<script src='<c:url value="${baseURL}/resources/js/site.js" />'></script>
+	<script src='<c:url value="/resources/js/common/jquery-2.1.3.min.js" />'></script>
+	<script src='<c:url value="/resources/js/common/bootstrap.min.js" />'></script>
+	<script src='<c:url value="/resources/js/common/angular.min.js" />'></script>
+	<script src='<c:url value="/resources/js/site.js" />'></script>
 </body>
 </html>
