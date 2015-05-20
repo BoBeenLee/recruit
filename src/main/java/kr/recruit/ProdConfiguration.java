@@ -20,11 +20,8 @@ public class ProdConfiguration {
 			String username = "developer";
 			String password = "developer";
 			String url = "jdbc:mariadb://localhost:3306/recruit";
-			String getenv = System.getenv("DATABASE_URL");
-			String dbProperty = null; // System.getProperty(getenv);
+			String dbProperty = System.getenv("DATABASE_URL");
 			
-			if(getenv != null)
-				dbProperty = System.getProperty(getenv);
 			if (dbProperty != null) {
 				URI dbUri = new URI(dbProperty);
 				
