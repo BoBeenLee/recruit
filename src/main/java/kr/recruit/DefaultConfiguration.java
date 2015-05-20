@@ -13,10 +13,10 @@ public class DefaultConfiguration {
 	public SimpleDriverDataSource dataSource(){
 		SimpleDriverDataSource simpleDriverDataSource = new SimpleDriverDataSource();
 		
-		simpleDriverDataSource.setDriverClass(org.mariadb.jdbc.Driver.class);
-		simpleDriverDataSource.setUrl("jdbc:mariadb://localhost:3306/recruit");
-		simpleDriverDataSource.setUsername("developer");
-		simpleDriverDataSource.setPassword("developer");
+		simpleDriverDataSource.setDriverClass(org.postgresql.Driver.class);
+		simpleDriverDataSource.setUrl("jdbc:postgresql://localhost:5432/recruit");
+		simpleDriverDataSource.setUsername("recruit");
+		simpleDriverDataSource.setPassword("1234");
 		
 		return simpleDriverDataSource;
 	}
