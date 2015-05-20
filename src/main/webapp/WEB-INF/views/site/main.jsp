@@ -36,7 +36,7 @@
 	</nav>
 	<article>
 	<div>
-		<a class="cur-url" href="{{ site.url }}" target="_blank">Link</a>
+		<a class="cur-url" href="{{ link }}" target="_blank">Link</a>
 	</div>
 	<ul>
 		<li ng-repeat="siteGroup in siteGroups">

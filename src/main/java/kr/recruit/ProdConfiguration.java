@@ -14,27 +14,32 @@ import org.springframework.context.annotation.Profile;
 public class ProdConfiguration {
 	@Bean
 	public BasicDataSource dataSource() {
-		URI dbUri;
 		BasicDataSource basicDataSource = new BasicDataSource();
 
 		try {
 			String username = "developer";
 			String password = "developer";
 			String url = "jdbc:mariadb://localhost:3306/recruit";
-			String dbProperty = System.getProperty(System.getenv("DATABASE_URL"));
+			String getenv = System.getenv("DATABASE_URL");
+			String dbProperty = null; // System.getProperty(getenv);
+			
+			if(getenv != null)
+				dbProperty = System.getProperty(getenv);
 			if (dbProperty != null) {
-				dbUri = new URI(dbProperty);
-
+				URI dbUri = new URI(dbProperty);
+				
 				username = dbUri.getUserInfo().split(":")[0];
 				password = dbUri.getUserInfo().split(":")[1];
 				url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
 			}
+			
 			basicDataSource.setUrl(url);
 			basicDataSource.setUsername(username);
 			basicDataSource.setPassword(password);
 		} catch (URISyntaxException e) {
 			// Deal with errors here.
 		}
+		
 		return basicDataSource;
 	}
 }
