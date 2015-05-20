@@ -19,20 +19,22 @@ public class ProdConfiguration {
 		try {
 			String username = "developer";
 			String password = "developer";
-			String url = "jdbc:mariadb://localhost:3306/recruit";
-			String dbProperty = System.getenv("DATABASE_URL");
-			
-			if (dbProperty != null) {
-				URI dbUri = new URI(dbProperty);
+			String dbUrl = "jdbc:mariadb://localhost:3306/recruit";
+			String DATABASE_URL = System.getenv("DATABASE_URL");
+		
+			if (DATABASE_URL != null) {
+				URI dbUri = new URI(DATABASE_URL);
 				
 				username = dbUri.getUserInfo().split(":")[0];
 				password = dbUri.getUserInfo().split(":")[1];
-				url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+				dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
 			}
 			
-			basicDataSource.setUrl(url);
+			basicDataSource.setDriverClassName("org.postgresql.Driver");
+			basicDataSource.setUrl(dbUrl);
 			basicDataSource.setUsername(username);
 			basicDataSource.setPassword(password);
+			basicDataSource.setInitialSize(1);
 		} catch (URISyntaxException e) {
 			// Deal with errors here.
 		}
