@@ -14,13 +14,28 @@ import org.springframework.context.annotation.PropertySource;
 @Profile("prod")
 public class ProdConfiguration {
 	@Bean
-	public BasicDataSource dataSource() throws Exception{
-		URI url = new URI("#{systemEnvironment['DATABASE_URL']}");
+	public BasicDataSource dataSource() {
+		URI dbUri;
 		BasicDataSource basicDataSource = new BasicDataSource();
-		basicDataSource.setUrl("#{ 'jdbc:postgresql://' + @dbUrl.getHost() + ':' + @dbUrl.getPort() + @dbUrl.getPath() }");
-		basicDataSource.setUsername("#{ @dbUrl.getUserInfo().split(':')[0] }");
-		basicDataSource.setPassword("#{ @dbUrl.getUserInfo().split(':')[1] }");
 		
+		try {
+			String username = "developer";
+			String password = "developer";
+			String url = "jdbc:mariadb://localhost:3306/recruit";
+			String dbProperty = System.getProperty("database.url");
+			if (dbProperty != null) {
+				dbUri = new URI(dbProperty);
+
+				username = dbUri.getUserInfo().split(":")[0];
+				password = dbUri.getUserInfo().split(":")[1];
+				url = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+			}
+			basicDataSource.setUrl(url);
+			basicDataSource.setUsername(username);
+			basicDataSource.setPassword(password);
+		} catch (URISyntaxException e) {
+			// Deal with errors here.
+		}
 		return basicDataSource;
 	}
 }
