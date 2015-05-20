@@ -18,5 +18,9 @@ spring:
   view:
     prefix: /WEB-INF/views/
     suffix: .jsp
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: false
+    hibernate.ddl-auto: create    
 server:
   port: 8080

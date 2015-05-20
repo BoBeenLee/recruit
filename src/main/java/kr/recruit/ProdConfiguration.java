@@ -22,6 +22,8 @@ public class ProdConfiguration {
 			String dbUrl = "jdbc:mariadb://localhost:3306/recruit";
 			String DATABASE_URL = System.getenv("DATABASE_URL");
 		
+			if(DATABASE_URL == null)
+				DATABASE_URL = "postgres://obmhdagdcusujf:NXUAjaRQxhdjx6EY3o19-E-V0D@ec2-174-129-26-115.compute-1.amazonaws.com:5432/dbda4maar31q9a";
 			if (DATABASE_URL != null) {
 				URI dbUri = new URI(DATABASE_URL);
 				
