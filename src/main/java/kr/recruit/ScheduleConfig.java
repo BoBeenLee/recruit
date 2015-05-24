@@ -49,7 +49,7 @@ public class ScheduleConfig {
 		}
 	}
 	
-	@Scheduled(fixedRate=30000)
+	@Scheduled(fixedRate=1500000)
 	public void repeatedRequest(){
 //		logger.info("The time is now " + dateFormat.format(new Date()) + " repeatedRequest");
 		logger.info("result : " + HttpUtils.getJson(restTemplate, REQUEST_URL, null));
