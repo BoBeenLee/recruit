@@ -13,7 +13,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	public void configure(WebSecurity web) throws Exception {
-//		web.ignoring().antMatchers("/**");
+		web.ignoring().antMatchers("/**");
 	}
 
 	@Override

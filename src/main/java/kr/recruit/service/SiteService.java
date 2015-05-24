@@ -77,6 +77,7 @@ public class SiteService {
 					isExist = false;
 				siteMaps.add(siteMap);
 			}
+			
 			if(!isExist){
 				SiteGroup siteGroup = siteGroupService.saveSiteGroup(site.getStId());
 				for (int i = 0; i < siteMaps.size(); i++){

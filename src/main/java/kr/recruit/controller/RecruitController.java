@@ -85,6 +85,7 @@ public class RecruitController {
 		for (int i = 0; i < sites.size(); i++) {
 			Site site = siteService.findByName(sites.get(i).getName());
 			try {
+				siteGroupService.deleteByStId(site.getStId());
 				siteService.saveSiteGroups(site);
 			} catch (IOException e) {
 			}

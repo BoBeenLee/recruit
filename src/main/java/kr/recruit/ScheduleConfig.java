@@ -23,7 +23,7 @@ import org.springframework.web.client.RestTemplate;
 public class ScheduleConfig {
 	private static final Logger logger = LoggerFactory.getLogger(ScheduleConfig.class);
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-	private static final String REQUEST_URL = "http://localhost:8080/test/get";
+	private static final String REQUEST_URL = "https://recruitdev.herokuapp.com/test/get";
 	@Autowired
 	private SiteService siteService;
 	@Autowired
@@ -49,9 +49,9 @@ public class ScheduleConfig {
 		}
 	}
 	
-	@Scheduled(fixedRate=1500000)
+	@Scheduled(fixedRate=30000)
 	public void repeatedRequest(){
-		logger.info("The time is now " + dateFormat.format(new Date()) + " repeatedRequest");
+//		logger.info("The time is now " + dateFormat.format(new Date()) + " repeatedRequest");
 		logger.info("result : " + HttpUtils.getJson(restTemplate, REQUEST_URL, null));
 	}
 }

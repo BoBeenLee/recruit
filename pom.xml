@@ -68,13 +68,6 @@
 			<artifactId>commons-dbcp</artifactId>
 		</dependency>
 
-		<!-- MariaDB Connector Java -->
-		<dependency>
-			<groupId>org.mariadb.jdbc</groupId>
-			<artifactId>mariadb-java-client</artifactId>
-			<version>1.1.7</version>
-		</dependency>
-
 		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
