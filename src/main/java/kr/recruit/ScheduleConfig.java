@@ -48,7 +48,8 @@ public class ScheduleConfig {
 		}
 	}
 	
-	@Scheduled(cron="0 0/1 8-1 * * *")
+	@Scheduled(cron="0 0/1 8-23 * * *")
+	@Scheduled(cron="0 0/1 0-1 * * *")
 	public void repeatedRequest(){
 //		logger.info("The time is now " + dateFormat.format(new Date()) + " repeatedRequest");
 		logger.info("result : " + HttpUtils.getJson(restTemplate, REQUEST_URL, null));
