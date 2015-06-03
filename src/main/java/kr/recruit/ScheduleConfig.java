@@ -32,8 +32,7 @@ public class ScheduleConfig {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-	@Scheduled( cron="0 0 2 * * *")
-//	@Scheduled(fixedRate=5000)
+	@Scheduled( cron="0 0 0 * * *")
 	public void updateRecruit() {
 		logger.info("The time is now " + dateFormat.format(new Date()) + " updateRecruit");
 		
@@ -49,7 +48,7 @@ public class ScheduleConfig {
 		}
 	}
 	
-	@Scheduled(fixedRate=1500000)
+	@Scheduled(cron="0 0/1 8-1 * * *")
 	public void repeatedRequest(){
 //		logger.info("The time is now " + dateFormat.format(new Date()) + " repeatedRequest");
 		logger.info("result : " + HttpUtils.getJson(restTemplate, REQUEST_URL, null));
