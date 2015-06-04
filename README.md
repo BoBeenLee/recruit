@@ -1,1 +1,1 @@
-# [Recruit](recruitdev.herokuapp.com/recruit)
+# [Recruit](http://recruitdev.herokuapp.com/recruit)
