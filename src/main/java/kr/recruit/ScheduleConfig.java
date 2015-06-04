@@ -32,7 +32,7 @@ public class ScheduleConfig {
 	@Autowired
 	private RestTemplate restTemplate;
 	
-//	@Scheduled( cron="0 0 0 * * *")
+	@Scheduled( cron="0 0 0 * * *")
 	public void updateRecruit() {
 		logger.info("The time is now " + dateFormat.format(new Date()) + " updateRecruit");
 		
@@ -48,9 +48,14 @@ public class ScheduleConfig {
 		}
 	}
 	
-	/*@Scheduled(cron="0 0/1 8-23 * * *")
-	@Scheduled(cron="0 0/1 0-1 * * *")*/
+	@Scheduled(cron="0 0/1 8-23 * * *")
 	public void repeatedRequest(){
+//		logger.info("The time is now " + dateFormat.format(new Date()) + " repeatedRequest");
+		logger.info("result : " + HttpUtils.getJson(restTemplate, REQUEST_URL, null));
+	}
+	
+	@Scheduled(cron="0 0/1 0-1 * * *")
+	public void repeatedRequest1(){
 //		logger.info("The time is now " + dateFormat.format(new Date()) + " repeatedRequest");
 		logger.info("result : " + HttpUtils.getJson(restTemplate, REQUEST_URL, null));
 	}
