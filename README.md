@@ -1,3 +1,1 @@
-# Recruit
-
-[Link](recruitdev.herokuapp.com/recruit)
+# [Recruit](recruitdev.herokuapp.com/recruit)
