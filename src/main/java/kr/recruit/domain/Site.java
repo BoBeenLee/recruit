@@ -1,15 +1,10 @@
 package kr.recruit.domain;
 
-import java.util.List;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
-
 import kr.recruit.util.JacksonUtils;
 import lombok.Data;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -21,43 +16,45 @@ public class Site {
 	private String name;
 	private String url;
 	private String location;
-	private String keyset;
-	private String valueset;
+	@Column(name = "s_key")
+	private String sKey;
+	@Column(name = "s_value")
+	private String sValue;
 
 	@Transient
 	public List<String> keyCollection;
 	@Transient
 	public List<String> valueCollection;
 
-	public void setKeyset(List<String> keyset) {
-		this.keyset = JacksonUtils.objectToJson(keyset);
+	public void setsKey(List<String> sKey) {
+		this.sKey = JacksonUtils.objectToJson(sKey);
 	}
 
-	public void setValueset(List<String> valueset) {
-		this.valueset = JacksonUtils.objectToJson(valueset);
+	public void setsValue(List<String> sValue) {
+		this.sValue = JacksonUtils.objectToJson(sValue);
 	}
 
 	public void setKeyset(String keyset) {
-		this.keyset = JacksonUtils.objectToJson(keyset.split(","));
+		this.sKey = JacksonUtils.objectToJson(keyset.split(","));
 	}
 
 	public void setValueset(String valueset) {
-		this.valueset = JacksonUtils.objectToJson(valueset.split(","));
+		this.sValue = JacksonUtils.objectToJson(valueset.split(","));
 	}
 	
 	public List<String> getKeyCollection() {
-		if (keyset == null)
+		if (sKey == null)
 			return null;
 		if (keyCollection == null)
-			this.keyCollection = JacksonUtils.jsonToObject(keyset, List.class);
+			this.keyCollection = JacksonUtils.jsonToObject(sKey, List.class);
 		return keyCollection;
 	}
 
 	public List<String> getValueCollection() {
-		if (valueset == null)
+		if (sValue == null)
 			return null;
 		if (valueCollection == null)
-			this.valueCollection = JacksonUtils.jsonToObject(valueset, List.class);
+			this.valueCollection = JacksonUtils.jsonToObject(sValue, List.class);
 		return valueCollection;
 	}
 }

@@ -1,15 +1,8 @@
 package kr.recruit;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import kr.recruit.domain.Site;
 import kr.recruit.service.SiteGroupService;
 import kr.recruit.service.SiteService;
-import kr.recruit.util.HttpUtils;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +11,17 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 @Configuration
 @EnableScheduling
 public class ScheduleConfig {
 	private static final Logger logger = LoggerFactory.getLogger(ScheduleConfig.class);
 	private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-	private static final String REQUEST_URL = "https://recruitdev.herokuapp.com/test/get";
+//	private static final String REQUEST_URL = "https://recruitdev.herokuapp.com/test/get";
 	@Autowired
 	private SiteService siteService;
 	@Autowired
@@ -47,10 +45,12 @@ public class ScheduleConfig {
 			}
 		}
 	}
-	
+
+	/*
 	@Scheduled(cron="0 0/2 0-17 * * *")
 	public void repeatedRequest(){
 //		logger.info("The time is now " + dateFormat.format(new Date()) + " repeatedRequest");
 		logger.info("result : " + HttpUtils.getJson(restTemplate, REQUEST_URL, null));
 	}
+	*/
 }

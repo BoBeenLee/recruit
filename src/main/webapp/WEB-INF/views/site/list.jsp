@@ -17,7 +17,7 @@
 	href='<c:url value="/resources/css/style.css"/>'>
 </head>
 <body>
-	<header> 사이트 목록 <a href='<c:url value="/recruit/main"/>'>목록</a>
+	<header> 사이트 목록 <a href='<c:url value="/main"/>'>목록</a>
 	</header>
 	<article>
 	<ul>

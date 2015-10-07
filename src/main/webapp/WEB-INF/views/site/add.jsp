@@ -18,7 +18,7 @@
 	href='<c:url value="/resources/css/style.css"/>'>
 </head>
 <body ng-controller="AddCtrl" ng-init="init()">
-	<header> 사이트 추가 <a href='<c:url value="/recruit/main"/>'>목록</a> </header>
+	<header> 사이트 추가 <a href='<c:url value="/main"/>'>목록</a> </header>
 	<article>
 	<form method="post" action="add">
 		<div>
@@ -36,8 +36,8 @@
 			</thead>
 			<tbody class="menu">
 				<tr ng-repeat="num in numbers">
-					<td><input type="text" name="keyset" /></td>
-					<td><input type="text" name="valueset" /></td>
+					<td><input type="text" name="sKey" /></td>
+					<td><input type="text" name="sValue" /></td>
 					<td><input type="button" value="삭제" ng-click="remove($index)" /></td>
 				</tr>
 			</tbody>
